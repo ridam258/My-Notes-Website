@@ -11,9 +11,12 @@ document.querySelector(".additem").addEventListener("click",function(){
 document.querySelector(".switch").addEventListener("click",function(e){
     if (e.target.checked) {
         document.documentElement.setAttribute('data-theme', 'dark');
+        document.querySelector(".titleHead").classList.add("has-text-light");
         }
     else {
         document.documentElement.setAttribute('data-theme', 'light');
+        document.querySelector(".titleHead").classList.remove("has-text-light");
+
     }
     localStorage.setItem("darkMode",JSON.stringify(e.target.checked));
 });
@@ -71,10 +74,12 @@ function setTheme(){
     console.log(DarkModeBool);
     if (DarkModeBool) {
         document.documentElement.setAttribute('data-theme', 'dark');
+        document.querySelector(".titleHead").classList.add("has-text-light");
         darkButton.checked=true;
     }
     else {
         document.documentElement.setAttribute('data-theme', 'light');
+        document.querySelector(".titleHead").classList.remove("has-text-light");
     }
 };
 

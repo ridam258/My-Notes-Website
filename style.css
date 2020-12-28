@@ -6,9 +6,12 @@
   --bgColor: #121212;
   --cardColor: #121212;
   --inputColor: #525355;
-  --navColor: #525355;
+  --navColor: #121212;
   --fontColor: #ffffff;
   --darkheadColor: #ffffff;
+}
+.titleHead {
+  padding: 0;
 }
 body {
   overflow: hidden;
@@ -104,16 +107,40 @@ html {
 .darkHead {
   color: var(--darkheadColor);
 }
+
 .lightHidden {
   color: #ffffff;
 }
 .editButton {
   background-color: var(--bgColor);
 }
+.icons {
+  width: 20%;
+  margin: 0pc 10px;
+}
+.adarsh {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.titleInput {
+  color: var(--fontColor);
+}
 
 @media only screen and (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 1rem;
+  }
+  .darkFlex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .placeholder h1 {
+    font-size: 1rem;
+  }
+  .icons {
+    width: 20%;
   }
 }
