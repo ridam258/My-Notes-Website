@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>MY NOTES</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <link rel="stylesheet" href="double.css" />
+  <body>
+    <!-- nav bar -->
+    <nav class="navbar top" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="#">
+          <img
+            src="https://listimg.pinclipart.com/picdir/s/57-579889_note-taking-skills-clip-art-take-note-png.png"
+            width="50"
+            height="100"
+          />
+        </a>
+        <p
+          class="is-size-3 has-text-link-dark has-text-weight-bold is-family-monospace"
+        >
+          MY NOTES
+        </p>
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <p class="p-3 has-text-weight-bold darkHead">Dark Mode</p>
+          <label class="switch">
+            <input type="checkbox" class="ridam" />
+            <span class="slider round"></span>
+          </label>
+        </div>
+      </div>
+    </nav>
+    <!-- add section -->
+    <div class="columns is-mobile bottom">
+      <div
+        class="column main p-6 has-text-right is-one-third firstcol is-hidden-mobile"
+        id="left_side"
+      >
+        <label class="navbar-start pl-3 inputLabel" for="titleInput"
+          >Add title</label
+        >
+        <textarea
+          class="textarea m-3 titleInput has-fixed-size"
+          id="titleInput"
+          rows="1"
+        ></textarea>
+        <label class="navbar-start pl-3 inputLabel" for="notesInput"
+          >Type your text here</label
+        >
+        <textarea
+          class="textarea m-3 notesInput has-fixed-size"
+          id="notesInput"
+        ></textarea>
+        <div>
+          <button class="button is-link m-3 additem">ADD</button>
+        </div>
+      </div>
+
+      <!-- notes section -->
+      <div class="column secondcol">
+        <div class="placeholder">
+          <h1>Your Notes Will Be Shown Here</h1>
+        </div>
+        <div class="grid" id="grid"></div>
+        <!-- <div class="card" id="">
+          <div class="card-content">
+            <div class="notesHead">
+              <p class="subtitle">${element.title}</p>
+              <p class="date">${date}</p>
+            </div>
+            <p class="title is-size-6">${element.content}</p>
+          </div>
+          <footer class="card-footer">
+            <p class="card-footer-item">
+              <button
+                class="button is-white is-fullwidth editButton"
+                id="editButtons"
+              >
+                Edit
+              </button>
+            </p>
+            <p class="card-footer-item">
+              <button
+                class="button is-white is-fullwidth deleteButton"
+                id="deleteButtons"
+              >
+                Delete
+              </button>
+            </p>
+          </footer>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- <script src="index.js"></script> -->
+    <script src="ridam.js"></script>
+  </body>
+</html>
