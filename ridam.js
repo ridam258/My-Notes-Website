@@ -179,7 +179,7 @@ var displayItem=function(){
             var mm = today.getMonth()+1;
             var yyyy = today.getFullYear();
             var date=`${dd}/${mm}/${yyyy}`;
-    html=`<div class="card" id="${i}"><div class="card-content"><div class="notesHead"><p class="subtitle">${element.title}</p><p class="date">${date}</p></div><p class="title is-size-6">${element.content}</p></div><footer class="card-footer"><p class="card-footer-item"><button class="button is-white is-fullwidth editButton">Edit</button></p><p class="card-footer-item"><button class="button is-white is-fullwidth deleteButton">Delete</button></p></footer></div>`  
+    html=`<div class="card" id="${i}"><div class="card-content"><div class="notesHead"><p class="subtitle">${element.title}</p><p class="date">${date}</p></div><p class="title is-size-6">${element.content}</p></div><br><br><br><footer class="card-footer"><p class="card-footer-item"><button class="button is-white is-fullwidth editButton">Edit</button></p><p class="card-footer-item"><button class="button is-white is-fullwidth deleteButton">Delete</button></p></footer></div>`  
     grid.innerHTML+=html;
         }
        
