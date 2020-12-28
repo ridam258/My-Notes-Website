@@ -126,11 +126,27 @@ html {
 .titleInput {
   color: var(--fontColor);
 }
+.notesInput {
+  color: var(--fontColor);
+}
+.titleInputModal {
+  color: var(--fontColor);
+}
+.notesInputModal {
+  color: var(--fontColor);
+}
+
+.addIcon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 
 @media only screen and (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-gap: 1rem;
+    padding-bottom: 4.5rem;
   }
   .darkFlex {
     display: flex;
@@ -142,5 +158,17 @@ html {
   }
   .icons {
     width: 20%;
+  }
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
+  .titleHead {
+    font-size: 2rem;
+  }
+  .adarsh {
+    padding-top: 1rem;
+  }
+  .darkHead {
+    font-size: 12px;
   }
 }

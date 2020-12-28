@@ -1,12 +1,21 @@
 setTheme();
 var isUpdate=false;
 var curId=0;
+var addIcon=document.querySelector(".addIcon");
 document.querySelector(".additem").addEventListener("click",function(){
     if(isUpdate){
-        updateNote();
+        updateNote(false);
         return;
     }
-    addNewItem();
+    addNewItem(false);
+});
+document.querySelector(".AddModal").addEventListener("click",function(){
+    console.log("me");
+    if(isUpdate){
+        updateNote(true);
+        return;
+    }
+    addNewItem(true);
 });
 document.querySelector(".switch").addEventListener("click",function(e){
     if (e.target.checked) {
@@ -24,34 +33,55 @@ document.querySelector(".secondcol").addEventListener("click",(e)=>{
     var noteId=e.target.parentNode.parentNode.parentNode.id;
     e.target.classList.forEach((e)=>{
         if(e==="editButton"){
-            editNote(noteId);
+            if(screen.width>=1023){
+            editNote(noteId,true);
+            }
+            else{
+                console.log(screen.width);
+                editNote(noteId,false);
+            }
         }
         else if(e==="deleteButton"){
             deleteNote(noteId);
         }
     })
 });
-
+addIcon.addEventListener("click",()=>{
+    document.querySelector(".modal").classList.add("is-active");
+});
+document.querySelector(".closeModal").addEventListener("click",()=>{
+    closeModal();
+})
 var array=[];
 var placehold=document.querySelector(".placeholder");
 
-function editNote(id){
+function editNote(id,noModal){
     getNotes();
+    if(noModal===true){
     document.querySelector(".titleInput").value=array[id].title;
     document.querySelector(".notesInput").value=array[id].content;
     document.querySelector(".additem").innerHTML="Update";
+    }
+    else{
+    document.querySelector(".modal").classList.add("is-active");
+    document.querySelector(".titleInputModal").value=array[id].title;
+    document.querySelector(".notesInputModal").value=array[id].content;
+    document.querySelector(".AddModal").innerHTML="Update";
+    }
     isUpdate=true;
     curId=id;
     
+    
 };
-function updateNote(){
-    var titleInputVal= document.querySelector(".titleInput").value;
-    var contentInputVal= document.querySelector(".notesInput").value;
+function updateNote(fromModal){
+    var titleInputVal=fromModal?document.querySelector(".titleInputModal").value:document.querySelector(".titleInput").value;
+    var contentInputVal=fromModal?document.querySelector(".notesInputModal").value: document.querySelector(".notesInput").value;
     var note={
         title:titleInputVal,
         content:contentInputVal,
         date:new Date()
     }
+    console.log(note);
     if(note.title.length===0||note.content.length===0)return;
 console.log(curId);
 array[curId]=note;
@@ -59,7 +89,9 @@ localStorage.setItem("notes",JSON.stringify(array));
 displayItem();
     isUpdate=false;
     document.querySelector(".additem").innerHTML="Add";
+    document.querySelector(".AddModal").innerHTML="Add";
     clearFields();
+    closeModal();
 
 }
 function deleteNote(id){
@@ -83,14 +115,23 @@ function setTheme(){
     }
 };
 
-var addNewItem=function(){
-    var titleInputVal= document.querySelector(".titleInput").value;
-    var contentInputVal= document.querySelector(".notesInput").value;
+var addNewItem=function(fromModal){
+    var titleInputVal,contentInputVal;
+    if(fromModal===true){
+        titleInputVal=document.querySelector(".titleInputModal").value;
+        contentInputVal=document.querySelector(".notesInputModal").value;
+    }
+    else{
+        titleInputVal=document.querySelector(".titleInput").value;
+        contentInputVal=document.querySelector(".notesInput").value;
+      
+    }
     var notes={
         title:titleInputVal,
         content:contentInputVal,
         date:new Date()
     }
+    console.log(notes)
     if(notes.title.length===0||notes.content.length===0)return;
     getNotes();
 
@@ -99,10 +140,15 @@ var addNewItem=function(){
     clearFields();
     localStorage.setItem("notes",JSON.stringify(array));
     displayItem();
+    closeModal();
 
 }
 var clearFields=function(){
+    console.log("chl rya")
+
+    document.querySelector(".titleInputModal").value="";
     document.querySelector(".titleInput").value="";
+    document.querySelector(".notesInputModal").value="";
     document.querySelector(".notesInput").value="";
 }
 var getNotes= function(){
@@ -141,4 +187,16 @@ var displayItem=function(){
     }
 }
 
+
+
+// hi popup
+
+
+
+function closeModal(){
+    document.querySelector(".modal").classList.remove("is-active");
+};
+
 displayItem();
+
+console.log(document.querySelector(".titleInputModal").value);

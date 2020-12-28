@@ -11,15 +11,13 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <link rel="stylesheet" href="double.css" />
-  <body>
     <!-- nav bar -->
     <nav class="navbar top" role="navigation" aria-label="main navigation">
       <div class="navbar-brand adarsh">
         <div class="adarsh">
-          <img class="pl-3 icons" src="icon.png" />
+          <img class="icons" src="icon.png" />
           <p class="is-size-3 titleHead is-family-secondary">MyNotes</p>
         </div>
-        <!-- <img src="addIcon.png" alt="" /> -->
       </div>
       <div class="navbar-end">
         <div class="navbar-item darkFlex">
@@ -34,7 +32,7 @@
     <!-- add section -->
     <div class="columns is-mobile bottom">
       <div
-        class="column main has-text-right is-one-third p-6 firstcol is-hidden-mobile"
+        class="column main has-text-right is-one-third p-6 firstcol is-hidden-mobile is-hidden-tablet-only"
         id="left_side"
       >
         <label class="navbar-start py-3 inputLabel" for="titleInput"
@@ -90,6 +88,37 @@
             </p>
           </footer>
         </div> -->
+        <img
+          class="addIcon is-hidden-desktop"
+          style="margin-right: 20px; width: 50px; margin-bottom: 20px"
+          src="addIcon.png"
+          alt=""
+        />
+        <div class="modal">
+          <div class="modal-background"></div>
+          <div class="modal-content">
+            <div class=" p-3">
+            <label class="navbar-start py-3 inputLabel" for="titleInput"
+          >Add title</label
+        >
+        <textarea
+          class="textarea py-3 titleInputModal has-fixed-size"
+          id="titleInput"
+          rows="1"
+        ></textarea>
+        <label class="navbar-start py-3 inputLabel" for="notesInput"
+          >Type your text here</label
+        >
+        <textarea
+          class="textarea py-3 notesInputModal has-fixed-size"
+          id="notesInput"
+        ></textarea>
+          <div class="parentAdd">
+             <button class="button is-danger my-3 additem AddModal is-fullwidth">ADD</button>
+          </div>
+        </div>
+          <button class="modal-close is-large closeModal" aria-label="close"></button>
+        </div>
       </div>
     </div>
 
